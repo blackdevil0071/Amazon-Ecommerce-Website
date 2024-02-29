@@ -74,10 +74,12 @@ function App() {
             ? 'site-container d-flex flex-column full-box'
             : 'site-container d-flex flex-column'
         }
+        style={{backgroundColor:'white'}}
+        
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar bg="dark" variant="dark" expand="lg">
+          <Navbar expand="lg">
             <Container>
               <Button
                 variant="dark"
@@ -87,7 +89,7 @@ function App() {
               </Button>
 
               <LinkContainer to="/">
-                <Navbar.Brand>amazona</Navbar.Brand>
+                <Navbar.Brand>Ecommerce</Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">

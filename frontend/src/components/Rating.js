@@ -1,5 +1,7 @@
 function Rating(props) {
   const { rating, numReviews, caption } = props;
+  const starColor = 'black'; // Set the color you want for the stars
+
   return (
     <div className="rating">
       <span>
@@ -11,6 +13,7 @@ function Rating(props) {
               ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
+          style={{ color: starColor }}
         />
       </span>
       <span>
@@ -22,6 +25,7 @@ function Rating(props) {
               ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
+          style={{ color: starColor }}
         />
       </span>
       <span>
@@ -33,6 +37,7 @@ function Rating(props) {
               ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
+          style={{ color: starColor }}
         />
       </span>
       <span>
@@ -44,6 +49,7 @@ function Rating(props) {
               ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
+          style={{ color: starColor }}
         />
       </span>
       <span>
@@ -55,6 +61,7 @@ function Rating(props) {
               ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
+          style={{ color: starColor }}
         />
       </span>
       {caption ? (
@@ -65,4 +72,5 @@ function Rating(props) {
     </div>
   );
 }
+
 export default Rating;

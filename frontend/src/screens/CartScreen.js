@@ -33,15 +33,13 @@ export default function CartScreen() {
   };
 
   const checkoutHandler = () => {
-    navigate('/signin?redirect=/shipping');
+    navigate('/shipping');
   };
 
   return (
-    <div>
-      <Helmet>
-        <title>Shopping Cart</title>
-      </Helmet>
-      <h1>Shopping Cart</h1>
+    <div >
+
+      <h1 style={{fontFamily:'monospace'}}>Shopping Cart</h1>
       <Row>
         <Col md={8}>
           {cartItems.length === 0 ? (
@@ -59,7 +57,7 @@ export default function CartScreen() {
                         alt={item.name}
                         className="img-fluid rounded img-thumbnail"
                       ></img>{' '}
-                      <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                      <Link to={`/product/${item.slug}`} style={{color:'black',textDecoration:'none'}}>{item.name}</Link>
                     </Col>
                     <Col md={3}>
                       <Button
@@ -115,6 +113,7 @@ export default function CartScreen() {
                       variant="primary"
                       onClick={checkoutHandler}
                       disabled={cartItems.length === 0}
+                      style={{backgroundColor:'black',color:'white'}}
                     >
                       Proceed to Checkout
                     </Button>

@@ -1,7 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import Rating from './Rating';
 import axios from 'axios';
 import { useContext } from 'react';
 import { Store } from '../Store';
@@ -29,25 +28,44 @@ function Product(props) {
   };
 
   return (
-    <Card>
+    <Card
+      style={{
+        border: 'none',
+        transition: 'transform 0.2s',
+        overflow: 'hidden',
+        cursor: 'pointer',
+      }}
+      className="zoom-in-on-hover"
+      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
+      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+    >
       <Link to={`/product/${product.slug}`}>
-        <img src={product.image} className="card-img-top" alt={product.name} />
+        <img src={product.image} 
+        className="card-img-top" 
+        alt={product.name} 
+        loading='lazy'/>
       </Link>
       <Card.Body>
-        <Link to={`/product/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
+        <Link style={{ textDecoration: 'none' }} to={`/product/${product.slug}`}>
+          <Card.Title style={{ color: 'black' }}>{product.name}</Card.Title>
         </Link>
-        <Rating rating={product.rating} numReviews={product.numReviews} />
+
         <Card.Text>${product.price}</Card.Text>
         {product.countInStock === 0 ? (
           <Button variant="light" disabled>
             Out of stock
           </Button>
         ) : (
-          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+          <Button
+            onClick={() => addToCartHandler(product)}
+            style={{ backgroundColor: 'black', color: 'white' }}
+          >
+            Add to cart
+          </Button>
         )}
       </Card.Body>
     </Card>
   );
 }
+
 export default Product;
